@@ -26,7 +26,38 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const FirstPage(),
+      home: const HomePage(),
     );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+      color: Colors.blue,
+      child: Center(
+        child: Container(
+          color: Colors.amber,
+          width: 500,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              'Hello World',
+              style: TextStyle(
+                  fontFamily: "Montserrat",
+                  fontSize: 100,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 2,
+                  fontStyle: FontStyle.italic),
+            ),
+          ),
+        ),
+      ),
+    ));
   }
 }
