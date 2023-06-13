@@ -1,3 +1,4 @@
+import 'package:firstapp_131/colum_row.dart';
 import 'package:firstapp_131/first_page.dart';
 import 'package:firstapp_131/images.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const ImagesAssets(),
+      home: const ColumRow(),
     );
   }
 }
