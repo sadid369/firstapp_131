@@ -1,3 +1,4 @@
+import 'package:firstapp_131/button.dart';
 import 'package:firstapp_131/colum_row.dart';
 import 'package:firstapp_131/first_page.dart';
 import 'package:firstapp_131/images.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TextFieldEx(),
+      home: Button(),
     );
   }
 }
