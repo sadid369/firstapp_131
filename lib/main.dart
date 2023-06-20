@@ -1,7 +1,9 @@
 import 'package:firstapp_131/button.dart';
 import 'package:firstapp_131/colum_row.dart';
+import 'package:firstapp_131/expanded.dart';
 import 'package:firstapp_131/first_page.dart';
 import 'package:firstapp_131/images.dart';
+import 'package:firstapp_131/stack_widget.dart';
 import 'package:firstapp_131/text_fiels.dart';
 import 'package:firstapp_131/ui.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UI(),
+      home: const StackWidget(),
     );
   }
 }
