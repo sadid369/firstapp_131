@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class CalculatorUI extends StatefulWidget {
-  const CalculatorUI({super.key});
+import 'package:flutter/services.dart';
 
-  @override
-  State<CalculatorUI> createState() => _CalculatorUIState();
-}
-
-class _CalculatorUIState extends State<CalculatorUI> {
+class CalculatorUI extends StatelessWidget {
   var no1Controller = TextEditingController();
   var no2Controller = TextEditingController();
   num sum = 0.0;
@@ -36,79 +31,100 @@ class _CalculatorUIState extends State<CalculatorUI> {
 
   @override
   Widget build(BuildContext context) {
+    print('Rebuild');
     return Scaffold(
       backgroundColor: Color(0xffF5F3F4),
       body: SafeArea(
           child: Container(
         width: double.infinity,
         height: double.infinity,
+        padding: EdgeInsets.all(25),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+              ),
               controller: no1Controller,
             ),
+            SizedBox(
+              height: 25,
+            ),
             TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+              ),
               controller: no2Controller,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                    onTap: () {
-                      symbol = symbolList[0];
+            StatefulBuilder(builder: (ctx, setSate) {
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                          onTap: () {
+                            symbol = symbolList[0];
 
-                      setState(() {});
-                    },
-                    child: Chip(
-                        backgroundColor: symbol == symbolList[0]
-                            ? Colors.amber
-                            : Colors.grey,
-                        label: Text('${symbolList[0]}'))),
-                InkWell(
-                    onTap: () {
-                      symbol = symbolList[1];
+                            setSate(() {});
+                          },
+                          child: Chip(
+                              backgroundColor: symbol == symbolList[0]
+                                  ? Colors.amber
+                                  : Colors.grey,
+                              label: Text('${symbolList[0]}'))),
+                      InkWell(
+                          onTap: () {
+                            symbol = symbolList[1];
 
-                      setState(() {});
-                    },
-                    child: Chip(
-                        backgroundColor: symbol == symbolList[1]
-                            ? Colors.amber
-                            : Colors.grey,
-                        label: Text('${symbolList[1]}'))),
-                InkWell(
-                    onTap: () {
-                      symbol = symbolList[2];
+                            setSate(() {});
+                          },
+                          child: Chip(
+                              backgroundColor: symbol == symbolList[1]
+                                  ? Colors.amber
+                                  : Colors.grey,
+                              label: Text('${symbolList[1]}'))),
+                      InkWell(
+                          onTap: () {
+                            symbol = symbolList[2];
 
-                      setState(() {});
-                    },
-                    child: Chip(
-                        backgroundColor: symbol == symbolList[2]
-                            ? Colors.amber
-                            : Colors.grey,
-                        label: Text('${symbolList[2]}'))),
-                InkWell(
-                    onTap: () {
-                      symbol = symbolList[3];
+                            setSate(() {});
+                          },
+                          child: Chip(
+                              backgroundColor: symbol == symbolList[2]
+                                  ? Colors.amber
+                                  : Colors.grey,
+                              label: Text('${symbolList[2]}'))),
+                      InkWell(
+                          onTap: () {
+                            symbol = symbolList[3];
 
-                      setState(() {});
+                            setSate(() {});
+                          },
+                          child: Chip(
+                              backgroundColor: symbol == symbolList[3]
+                                  ? Colors.amber
+                                  : Colors.grey,
+                              label: Text('${symbolList[3]}'))),
+                    ],
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      calculate();
+                      setSate(() {});
                     },
-                    child: Chip(
-                        backgroundColor: symbol == symbolList[3]
-                            ? Colors.amber
-                            : Colors.grey,
-                        label: Text('${symbolList[3]}'))),
-              ],
-            ),
-            ElevatedButton(
-              onPressed: () {
-                calculate();
-                setState(() {});
-              },
-              child: Text('Calculate'),
-            ),
-            Text('Result: ${sum.ceil()}'),
+                    child: Text('Calculate'),
+                  ),
+                  Text('Result: ${sum.ceil()}'),
+                ],
+              );
+            })
           ],
         ),
       )),
