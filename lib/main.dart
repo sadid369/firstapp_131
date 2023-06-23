@@ -1,3 +1,4 @@
+import 'package:firstapp_131/bmi.dart';
 import 'package:firstapp_131/button.dart';
 import 'package:firstapp_131/calculator_ui.dart';
 import 'package:firstapp_131/calulator_ui_1.dart';
@@ -25,38 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CalculatorUI(),
+      home: const Bmi(),
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      color: Colors.blue,
-      child: Center(
-        child: Container(
-          color: Colors.amber,
-          width: 500,
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              'Hello World',
-              style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 100,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: 2,
-                  fontStyle: FontStyle.italic),
-            ),
-          ),
-        ),
-      ),
-    ));
   }
 }
