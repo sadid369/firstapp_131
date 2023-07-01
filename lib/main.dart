@@ -3,6 +3,7 @@ import 'package:firstapp_131/button.dart';
 import 'package:firstapp_131/calculator_ui.dart';
 import 'package:firstapp_131/calulator_ui_1.dart';
 import 'package:firstapp_131/colum_row.dart';
+import 'package:firstapp_131/custom_widget.dart';
 import 'package:firstapp_131/expanded.dart';
 import 'package:firstapp_131/first_page.dart';
 import 'package:firstapp_131/first_page1.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashPage(),
+      home: const CustomWidget(),
     );
   }
 }
