@@ -5,7 +5,10 @@ import 'package:firstapp_131/calulator_ui_1.dart';
 import 'package:firstapp_131/colum_row.dart';
 import 'package:firstapp_131/expanded.dart';
 import 'package:firstapp_131/first_page.dart';
+import 'package:firstapp_131/first_page1.dart';
 import 'package:firstapp_131/images.dart';
+import 'package:firstapp_131/list_view.dart';
+import 'package:firstapp_131/splash_page.dart';
 import 'package:firstapp_131/stack_widget.dart';
 import 'package:firstapp_131/text_fiels.dart';
 import 'package:firstapp_131/ui.dart';
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Bmi(),
+      home: const SplashPage(),
     );
   }
 }
