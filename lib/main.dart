@@ -1,3 +1,4 @@
+import 'package:firstapp_131/animated_container1.dart';
 import 'package:firstapp_131/bmi.dart';
 import 'package:firstapp_131/button.dart';
 import 'package:firstapp_131/calculator_ui.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CustomWidget(),
+      home: AnimatedContainer1(),
     );
   }
 }
