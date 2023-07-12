@@ -53,7 +53,7 @@ class _AnimationControllerExpState extends State<AnimationControllerExp>
       );
       setState(() {});
     });
-    mController.forward();
+    // mController.forward();
   }
 
   @override

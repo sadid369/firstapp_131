@@ -1,4 +1,5 @@
 import 'package:firstapp_131/animated_container1.dart';
+import 'package:firstapp_131/animation_builder_exp.dart';
 import 'package:firstapp_131/animation_controller_exp.dart';
 import 'package:firstapp_131/bmi.dart';
 import 'package:firstapp_131/button.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AnimationControllerExp(),
+      home: const AnimationBuilderExp(),
     );
   }
 }
