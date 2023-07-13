@@ -12,6 +12,7 @@ import 'package:firstapp_131/first_page.dart';
 import 'package:firstapp_131/first_page1.dart';
 import 'package:firstapp_131/images.dart';
 import 'package:firstapp_131/list_view.dart';
+import 'package:firstapp_131/lottie_page.dart';
 import 'package:firstapp_131/page_transiction_exp.dart';
 import 'package:firstapp_131/shrink_warp.dart';
 import 'package:firstapp_131/splash_page.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AnimationBuilderExp(),
+      home: const LottiePage(),
     );
   }
 }
