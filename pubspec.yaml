@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   page_transition: ^2.0.9
   lottie: ^2.3.2
+  rive: ^0.11.4
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
     - assets/images/home.png
     - assets/images/cake.jpg
     - assets/lottie/
+    - assets/rive/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
