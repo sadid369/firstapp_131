@@ -10,7 +10,7 @@ class RiveAnimationPage extends StatefulWidget {
 }
 
 class _RiveAnimationPageState extends State<RiveAnimationPage> {
-  var rivePath = "assets/rive/star.riv";
+  var rivePath = "assets/rive/login.riv";
   StateMachineController? machineController;
   Artboard? mainArtBoard;
   SMIInput<bool>? riveInput;
@@ -46,13 +46,7 @@ class _RiveAnimationPageState extends State<RiveAnimationPage> {
             : InkWell(
                 onTap: () {
                   if (riveInput != null) {
-                    if (riveInput!.value == false &&
-                        riveInput!.controller.isActive == false) {
-                      riveInput!.value = true;
-                    } else if (riveInput!.value == true &&
-                        riveInput!.controller.isActive == true) {
-                      riveInput!.value = false;
-                    }
+                    riveInput!.value = !riveInput!.value;
                     // if (riveInput != null) {
                     //   if (riveInput!.value == false &&
                     //       riveInput!.controller.isActive == false) {
