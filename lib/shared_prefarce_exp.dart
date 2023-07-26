@@ -30,6 +30,9 @@ class _SharedPrefarceExpState extends State<SharedPrefarceExp> {
         title: const Text('shared_preferences'),
       ),
       body: Column(children: [
+        SizedBox(
+          height: 200,
+        ),
         Text("Name saved: ${name ?? "Default Name"}"),
         TextField(
           controller: _controller,
