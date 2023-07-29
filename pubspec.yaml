@@ -39,6 +39,9 @@ dependencies:
   rive: ^0.11.4
   flutter_animate: ^4.2.0
   shared_preferences: ^2.0.16
+  sqflite: ^2.2.8+4
+  path: ^1.8.2
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:
