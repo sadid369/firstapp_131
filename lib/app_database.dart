@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firstapp_131/model/note_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -10,6 +11,10 @@ class AppDatabase {
 
   static final AppDatabase db = AppDatabase._();
   Database? _database;
+  static final NOTE_TABLE = "note";
+  static final NOTE_COLOUM_ID = "note_id";
+  static final NOTE_COLOUM_TITLE = "title";
+  static final NOTE_COLOUM_DESC = "desc";
 
   Future<Database> getDB() async {
     if (_database != null) {
@@ -19,21 +24,23 @@ class AppDatabase {
     }
   }
 
-  Future<bool> addNote(String title, String desc) async {
+  Future<bool> addNote(NoteModel note) async {
     var db = await getDB();
-    int rowsEffect = await db.insert("note", {"title": title, "desc": desc});
-    if (rowsEffect > 0) {
-      return true;
-    } else {
-      return false;
-    }
+    int rowsEffect = await db.insert(NOTE_TABLE, note.toMap());
+    return rowsEffect > 0;
   }
 
-  Future<List<Map<String, dynamic>>> fetchAllNotes() async {
+  Future<List<NoteModel>> fetchAllNotes() async {
     var db = await getDB();
-    List<Map<String, dynamic>> notes = await db.query('note');
+    List<NoteModel> listNotes = [];
+    List<Map<String, dynamic>> notes = await db.query(NOTE_TABLE);
 
-    return notes;
+    for (Map<String, dynamic> note in notes) {
+      NoteModel model = NoteModel.fromMap(note);
+      listNotes.add(model);
+    }
+
+    return listNotes;
   }
 
   Future<Database> initBD() async {
@@ -45,8 +52,25 @@ class AppDatabase {
       onCreate: (db, version) {
         //create table here
         db.execute(
-            "Create table note ( note_id integer primary key autoincrement, title text, desc text )");
+            "Create table $NOTE_TABLE ( $NOTE_COLOUM_ID integer primary key autoincrement, $NOTE_COLOUM_TITLE text, $NOTE_COLOUM_DESC text )");
       },
     );
+  }
+
+  Future<bool> updateNote(NoteModel note) async {
+    var db = await getDB();
+    var count = await db.update(
+      NOTE_TABLE,
+      note.toMap(),
+      where: "$NOTE_COLOUM_ID =${note.note_id}",
+    );
+    return count > 0;
+  }
+
+  Future<bool> deleteNote(int id) async {
+    var db = await getDB();
+    var count = await db
+        .delete(NOTE_TABLE, where: "$NOTE_COLOUM_ID = ?", whereArgs: ["$id"]);
+    return count > 0;
   }
 }
