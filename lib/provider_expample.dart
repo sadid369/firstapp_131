@@ -8,6 +8,7 @@ class ProviderExpample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Build');
     return Scaffold(
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -41,16 +42,22 @@ class ProviderExpample extends StatelessWidget {
           children: [
             Container(
               child: Center(
-                  child: Text(
-                // "${Provider.of<CounterProvider>(context).getCountValue()}",
-                "${context.watch<CounterProvider>().getCountValue()}",
-                style: TextStyle(fontSize: 50),
-              )),
+                child: Consumer<CounterProvider>(
+                  builder: (context, value, child) {
+                    print('Consumer');
+                    return Text(
+                      // "${context.watch<CounterProvider>().getCountValue()}",
+                      "${value.getCountValue()}",
+                      style: const TextStyle(fontSize: 50),
+                    );
+                  },
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ProviderExpamle2()));
+                    builder: (context) => const ProviderExpamle2()));
               },
               child: Text('Next Page'),
             )

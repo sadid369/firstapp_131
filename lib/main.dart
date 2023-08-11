@@ -7,6 +7,8 @@ import 'package:firstapp_131/calculator_ui.dart';
 import 'package:firstapp_131/calulator_ui_1.dart';
 import 'package:firstapp_131/colum_row.dart';
 import 'package:firstapp_131/counter_provider.dart';
+import 'package:firstapp_131/cubit/counter_cubit.dart';
+import 'package:firstapp_131/cubit/cubit_page.dart';
 import 'package:firstapp_131/custom_widget.dart';
 import 'package:firstapp_131/expanded.dart';
 import 'package:firstapp_131/first_page.dart';
@@ -15,6 +17,7 @@ import 'package:firstapp_131/images.dart';
 import 'package:firstapp_131/list_view.dart';
 import 'package:firstapp_131/login_with_sharedPref.dart';
 import 'package:firstapp_131/lottie_page.dart';
+import 'package:firstapp_131/note_provider/note_provider.dart';
 import 'package:firstapp_131/page_transiction_exp.dart';
 import 'package:firstapp_131/provider_expample.dart';
 import 'package:firstapp_131/rive_animation_page.dart';
@@ -27,11 +30,12 @@ import 'package:firstapp_131/stack_widget.dart';
 import 'package:firstapp_131/text_fiels.dart';
 import 'package:firstapp_131/ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => CounterProvider(),
+  runApp(BlocProvider(
+    create: (context) => CounterCubit(),
     child: const MyApp(),
   ));
 }
@@ -43,11 +47,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'WsCube Tech',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ProviderExpample(),
+      home: CubitPage(),
     );
   }
 }
